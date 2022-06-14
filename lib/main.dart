@@ -17,10 +17,11 @@ class MyApp extends StatelessWidget {
       if (!await launchUrl(_urlgit)) throw 'Could not launch $_urlgit';
     }
 
-    final Uri _urlmail = Uri.parse('mailto:ashrafwzza2@gmail.com');
-    void _launchUrlMail() async {
-      if (!await launchUrl(_urlmail)) throw 'Could not launch $_urlmail';
-    }
+    // you can Also use recognizer: TapGestureRecognizer()..onTap = () async {}
+    // final Uri _urlmail = Uri.parse('mailto:ashrafwzza2@gmail.com');
+    // void _launchUrlMail() async {
+    //   if (!await launchUrl(_urlmail)) throw 'Could not launch $_urlmail';
+    // }
 
     final Uri _urlphone = Uri.parse('tel:+2001029696595');
     void _launchUrlPhone() async {
@@ -28,6 +29,7 @@ class MyApp extends StatelessWidget {
     }
 
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         backgroundColor: Colors.blueGrey,
         body: SafeArea(
