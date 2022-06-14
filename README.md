@@ -5,6 +5,7 @@ A new Flutter project.
 ## Packages Used
 url_launcher
 https://pub.dev/packages/url_launcher
+
 font_awesome_flutter 
 https://pub.dev/packages/font_awesome_flutter
 
