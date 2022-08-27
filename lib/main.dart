@@ -1,10 +1,10 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:mi_card_flutter/custom_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
+enum linkType { phone, mail, github }
 void main() {
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -12,22 +12,6 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final Uri _urlgit = Uri.parse('https://github.com/AshrafWzza');
-    void _launchUrlGit() async {
-      if (!await launchUrl(_urlgit)) throw 'Could not launch $_urlgit';
-    }
-
-    // you can Also use recognizer: TapGestureRecognizer()..onTap = () async {}
-    // final Uri _urlmail = Uri.parse('mailto:ashrafwzza2@gmail.com');
-    // void _launchUrlMail() async {
-    //   if (!await launchUrl(_urlmail)) throw 'Could not launch $_urlmail';
-    // }
-
-    final Uri _urlphone = Uri.parse('tel:+2001029696595');
-    void _launchUrlPhone() async {
-      if (!await launchUrl(_urlphone)) throw 'Could not Call $_urlphone';
-    }
-
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -37,13 +21,11 @@ class MyApp extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              SizedBox(
+              const SizedBox(
                   width:
                       double.infinity), //to make Column align center horizontal
-              CircleAvatar(
-                radius: 50.0,
-                backgroundImage: AssetImage('images/aa.jpg'),
-              ),
+              const CircleAvatar(
+                  radius: 50.0, backgroundImage: AssetImage('images/a.png')),
               Text(
                 'Ashraf Wzza',
                 style: TextStyle(
@@ -66,21 +48,35 @@ class MyApp extends StatelessWidget {
               SizedBox(
                 width: 150.0,
                 height: 20.0,
-                child: Divider(
-                  color: Colors.blueGrey.shade900,
-                ),
+                child: Divider(color: Colors.blueGrey.shade900),
               ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              const CustomCard(
+                icon: Icons.phone,
+                text: '+20 01029696595',
+                type: linkType.phone,
+              ),
+              const CustomCard(
+                icon: Icons.mail,
+                text: 'ashrafwzza2@gmail.com',
+                type: linkType.mail,
+              ),
+              const CustomCard(
+                icon: FontAwesomeIcons.github,
+                text: 'github.com',
+                type: linkType.github,
+              ),
+              /*  Card(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 25.0),
                 child: ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.phone,
                     color: Colors.blueGrey,
                   ),
                   title: RichText(
                     text: TextSpan(
                       text: '+20 01029696595',
-                      style: TextStyle(color: Colors.blueGrey),
+                      style: const TextStyle(color: Colors.blueGrey),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () async {
                           _launchUrlPhone();
@@ -88,18 +84,20 @@ class MyApp extends StatelessWidget {
                     ),
                   ),
                 ),
-              ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              ),*/
+
+              /*Card(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 25.0),
                 child: ListTile(
-                  leading: Icon(
+                  leading: const Icon(
                     Icons.mail,
                     color: Colors.blueGrey,
                   ),
                   title: RichText(
                     text: TextSpan(
                         text: 'ashrafwzza2@gmail.com',
-                        style: TextStyle(color: Colors.blueGrey),
+                        style: const TextStyle(color: Colors.blueGrey),
                         // recognizer: TapGestureRecognizer()
                         //   ..onTap = () async {
                         //     launchUrl(emailLaunchUri);
@@ -107,44 +105,40 @@ class MyApp extends StatelessWidget {
                         //YOU CAN USE THIS WAY ALSO
                         recognizer: TapGestureRecognizer()
                           ..onTap = () async {
-                            if (await canLaunchUrl(Uri.parse(
-                                    'mailto:ashrafwzza2@gmail.com')) ==
-                                true) {
-                              launchUrl(
-                                  Uri.parse('mailto:ashrafwzza2@gmail.com'));
-                            } else {
-                              print("Can't launch Mail");
-                            }
+                            // _launcherMail();
                           }),
                   ),
                 ),
-              ),
-              Card(
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 25.0),
+              ),*/
+
+              /*Card(
+                margin: const EdgeInsets.symmetric(
+                    vertical: 10.0, horizontal: 25.0),
                 child: ListTile(
                   // using FontAwesomeIcons
-                  leading: FaIcon(
+                  leading: const FaIcon(
                     FontAwesomeIcons.github,
                     color: Colors.blueGrey,
                   ),
                   title: Container(
-                    margin: EdgeInsets.all(2.0),
+                    margin: const EdgeInsets.all(2.0),
                     alignment: Alignment.centerLeft,
                     child: TextButton(
                       // Use styleFrom to make padding 0 between button's boundary an child
                       // or you can use RichText textSpan and get rid of styleFrom
                       style: TextButton.styleFrom(
-                        padding: EdgeInsets.all(0.0),
+                        padding: const EdgeInsets.all(0.0),
                       ),
-                      onPressed: _launchUrlGit,
-                      child: Text(
+                      onPressed: () {} //_launchUrlGit,
+                      ,
+                      child: const Text(
                         'github.com',
                         style: TextStyle(color: Colors.blueGrey),
                       ),
                     ),
                   ),
                 ),
-              ),
+              ),*/
             ],
           ),
         ),
