@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:mi_card_flutter/custom_card.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-enum linkType { phone, mail, github }
+enum linkType { phone, mail, linkedIn, github }
 void main() {
   runApp(const MyApp());
 }
@@ -59,6 +59,11 @@ class MyApp extends StatelessWidget {
                 icon: Icons.mail,
                 text: 'ashrafwzza2@gmail.com',
                 type: linkType.mail,
+              ),
+              const CustomCard(
+                icon: FontAwesomeIcons.linkedin,
+                text: 'linkedin.com',
+                type: linkType.linkedIn,
               ),
               const CustomCard(
                 icon: FontAwesomeIcons.github,

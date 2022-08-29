@@ -15,6 +15,18 @@ void _launchUrlPhone() async {
   }
 }
 
+final Uri _urlLinkedIn =
+    Uri.parse('https://www.linkedin.com/in/ashraf-wzza-b9933024a/');
+void _launchUrlLinkedIn() async {
+  try {
+    !await launchUrl(_urlLinkedIn);
+  } on Exception catch (e) {
+    AlertDialog(
+      title: Text('$e'),
+    );
+  }
+}
+
 final Uri _urlgit = Uri.parse('https://github.com/AshrafWzza');
 void _launchUrlGit() async {
   try {
@@ -74,6 +86,8 @@ class CustomCard extends StatelessWidget {
                   _launchUrlPhone();
                 } else if (type == linkType.mail) {
                   _launcherMail();
+                } else if (type == linkType.linkedIn) {
+                  _launchUrlLinkedIn();
                 } else {
                   _launchUrlGit();
                 }
